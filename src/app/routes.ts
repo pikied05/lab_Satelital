@@ -31,4 +31,7 @@ export const router = createBrowserRouter([
     path: "/admin",
     Component: AdminPage,
   },
-]);
+],
+{
+  basename: "/lab_Satelital/",
+});
