@@ -299,9 +299,8 @@ function CTAContacto() {
       className="bg-[#d9d9d9] border border-black border-t-0 overflow-hidden"
       style={{ fontFamily: NR }}
     >
-      <div className="relative flex flex-col items-center text-center px-6 py-12 sm:py-16 lg:py-24 gap-7 min-h-[360px] justify-center">
-
-        {/* Personaje — siempre visible, pegado a la izquierda */}
+      {/* ===== DESKTOP / TABLET (lg+): monito flotando a la izquierda ===== */}
+      <div className="hidden lg:flex relative flex-col items-center text-center px-6 py-12 sm:py-16 lg:py-24 gap-7 min-h-[360px] justify-center">
         <div
           className="absolute left-0 top-1/2 -translate-y-1/2 pointer-events-none select-none"
           style={{ width: "clamp(80px, 20%, 300px)" }}
@@ -343,6 +342,52 @@ function CTAContacto() {
             to="/imprenta"
             className="bg-transparent text-black rounded-[9px] px-8 py-4 hover:bg-black hover:text-white border-2 border-black transition-all duration-200 no-underline"
             style={{ fontSize: "clamp(15px, 1.6vw, 22px)", fontWeight: 300 }}
+          >
+            VER SERVICIOS
+          </Link>
+        </div>
+      </div>
+
+      {/* ===== MOBILE (hasta lg): monito entre la pregunta y el texto ===== */}
+      <div className="flex lg:hidden flex-col items-center text-center px-6 py-10 gap-4">
+        <p
+          className="text-black"
+          style={{ fontSize: "clamp(26px, 6vw, 40px)", fontWeight: 700, lineHeight: 1.1 }}
+        >
+          ¿Quieres cotizar,<br />
+          saber más o<br />
+          proponernos<br />
+          un proyecto?
+        </p>
+
+        <div className="pointer-events-none select-none" style={{ width: "55%", maxWidth: 220 }}>
+          <img
+            src={imgSateliteConTambor}
+            alt=""
+            className="w-full h-auto object-contain"
+            style={{ mixBlendMode: "multiply" }}
+          />
+        </div>
+
+        <p
+          className="text-black/60 max-w-[420px]"
+          style={{ fontSize: "clamp(14px, 4vw, 18px)", fontWeight: 300, lineHeight: 1.6 }}
+        >
+          Escríbenos y te respondemos en menos de 48 horas hábiles. Trabajamos con artistas, colectivos, editoriales y cualquier persona con ganas de imprimir.
+        </p>
+
+        <div className="flex flex-col sm:flex-row flex-wrap justify-center gap-3 w-full sm:w-auto mt-2">
+          <Link
+            to="/contacto"
+            className="bg-black text-white rounded-[9px] px-8 py-4 hover:bg-white hover:text-black border-2 border-black transition-all duration-200 no-underline"
+            style={{ fontSize: "clamp(15px, 4vw, 20px)", fontWeight: 600 }}
+          >
+            CONTÁCTANOS ☆
+          </Link>
+          <Link
+            to="/imprenta"
+            className="bg-transparent text-black rounded-[9px] px-8 py-4 hover:bg-black hover:text-white border-2 border-black transition-all duration-200 no-underline"
+            style={{ fontSize: "clamp(15px, 4vw, 20px)", fontWeight: 300 }}
           >
             VER SERVICIOS
           </Link>
