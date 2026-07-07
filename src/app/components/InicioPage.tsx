@@ -44,43 +44,45 @@ function HeroSection() {
       className="relative bg-white overflow-hidden"
       style={{ minHeight: "calc(100vh - 90px)", fontFamily: NR }}
     >
+      {/* Personaje izquierda — visible en todos los tamaños */}
       <div
         className="absolute top-[8%] left-0 pointer-events-none select-none"
-        style={{ width: "min(42%, 520px)", transform: "translateX(-16%)", zIndex: 0 }}
+        style={{ width: "clamp(90px, 28%, 420px)", transform: "translateX(-12%)", zIndex: 0 }}
       >
         <img src={imgMonitos1} alt="" className="w-full h-auto" />
       </div>
 
+      {/* Personaje derecha — visible en todos los tamaños */}
       <div
         className="absolute top-[14%] right-0 pointer-events-none select-none"
-        style={{ width: "min(38%, 480px)", transform: "translateX(14%) scaleX(-1)", zIndex: 0 }}
+        style={{ width: "clamp(80px, 25%, 380px)", transform: "translateX(12%) scaleX(-1)", zIndex: 0 }}
       >
         <img src={imgMonitos2} alt="" className="w-full h-auto" />
       </div>
 
-      <div className="relative w-full px-4 pt-3" style={{ zIndex: 1 }}>
+      <div className="relative w-full px-3 sm:px-4 pt-4" style={{ zIndex: 1 }}>
         <img
           src={imgLogoNegro}
           alt="Laboratorio Satelital"
           className="w-full mx-auto block object-contain"
-          style={{ maxWidth: "1280px", maxHeight: "60vh" }}
+          style={{ maxWidth: "1280px", maxHeight: "55vh" }}
         />
       </div>
 
       <div
-        className="relative flex flex-col items-center text-center px-6 pt-4 pb-16 gap-6"
+        className="relative flex flex-col items-center text-center px-5 pt-3 pb-10 gap-5"
         style={{ zIndex: 2 }}
       >
         <p
-          className="text-black max-w-[620px]"
-          style={{ fontSize: "clamp(18px, 2.4vw, 34px)", fontWeight: 300, lineHeight: 1.45 }}
+          className="text-black max-w-[560px]"
+          style={{ fontSize: "clamp(15px, 2.4vw, 32px)", fontWeight: 300, lineHeight: 1.45 }}
         >
           orbita entre conceptos e ideas, conecta recibe información y la reproduce y acercan.
         </p>
         <Link
           to="/contacto"
-          className="bg-[#d9d9d9] border-2 border-black rounded-[9px] px-10 py-3 hover:bg-black hover:text-white transition-all duration-200 no-underline text-black"
-          style={{ fontSize: "clamp(18px, 2vw, 30px)", fontWeight: 300 }}
+          className="bg-[#d9d9d9] border-2 border-black rounded-[9px] px-7 py-3 hover:bg-black hover:text-white transition-all duration-200 no-underline text-black"
+          style={{ fontSize: "clamp(15px, 2vw, 28px)", fontWeight: 300 }}
         >
           CONTÁCTANOS
         </Link>
@@ -136,7 +138,7 @@ function AboutSection() {
         <div className="flex items-start">
           <div
             className="flex-shrink-0 pointer-events-none select-none"
-            style={{ width: "min(36%, 480px)", marginLeft: "-2%", mixBlendMode: "multiply" }}
+            style={{ width: "clamp(100px, 36%, 480px)", marginLeft: "-2%", mixBlendMode: "multiply" }}
           >
             <img src={imgMonitos3} alt="" className="w-full h-auto object-contain block" />
           </div>
@@ -262,27 +264,27 @@ function ProyectosPreview() {
 function CTAContacto() {
   return (
     <section
-      className="bg-[#d9d9d9] border border-black border-t-0 overflow-hidden relative"
-      style={{ fontFamily: NR, minHeight: "420px" }}
+      className="bg-[#d9d9d9] border border-black border-t-0 overflow-hidden"
+      style={{ fontFamily: NR }}
     >
-      {/* Personaje — decorativo, pegado a la izquierda, centrado en altura */}
-      <div
-        className="absolute left-0 top-1/2 -translate-y-1/2 pointer-events-none select-none"
-        style={{ width: "clamp(180px, 22%, 320px)" }}
-      >
-        <img
-          src={imgSateliteConTambor}
-          alt=""
-          className="w-full h-auto object-contain"
-          style={{ mixBlendMode: "multiply" }}
-        />
-      </div>
+      <div className="relative flex flex-col items-center text-center px-6 py-12 sm:py-16 lg:py-24 gap-7 min-h-[360px] justify-center">
 
-      {/* Contenido — centrado en todo el ancho */}
-      <div className="flex flex-col items-center justify-center text-center px-8 py-16 lg:py-24 gap-8 h-full min-h-[420px]">
+        {/* Personaje — siempre visible, pegado a la izquierda */}
+        <div
+          className="absolute left-0 top-1/2 -translate-y-1/2 pointer-events-none select-none"
+          style={{ width: "clamp(80px, 20%, 300px)" }}
+        >
+          <img
+            src={imgSateliteConTambor}
+            alt=""
+            className="w-full h-auto object-contain"
+            style={{ mixBlendMode: "multiply" }}
+          />
+        </div>
+
         <p
           className="text-black"
-          style={{ fontSize: "clamp(28px, 4vw, 64px)", fontWeight: 700, lineHeight: 1.1 }}
+          style={{ fontSize: "clamp(26px, 4vw, 64px)", fontWeight: 700, lineHeight: 1.1 }}
         >
           ¿Querés cotizar,<br />
           saber más o<br />
@@ -291,24 +293,24 @@ function CTAContacto() {
         </p>
 
         <p
-          className="text-black/60 max-w-[480px]"
-          style={{ fontSize: "clamp(15px, 1.5vw, 22px)", fontWeight: 300, lineHeight: 1.6 }}
+          className="text-black/60 max-w-[440px]"
+          style={{ fontSize: "clamp(14px, 1.5vw, 22px)", fontWeight: 300, lineHeight: 1.6 }}
         >
           Escribinos y te respondemos en menos de 48 horas hábiles. Trabajamos con artistas, colectivos, editoriales y cualquier persona con ganas de imprimir.
         </p>
 
-        <div className="flex flex-wrap justify-center gap-4">
+        <div className="flex flex-col sm:flex-row flex-wrap justify-center gap-3 w-full sm:w-auto">
           <Link
             to="/contacto"
-            className="bg-black text-white rounded-[9px] px-10 py-4 hover:bg-white hover:text-black border-2 border-black transition-all duration-200 no-underline"
-            style={{ fontSize: "clamp(16px, 1.6vw, 24px)", fontWeight: 600 }}
+            className="bg-black text-white rounded-[9px] px-8 py-4 hover:bg-white hover:text-black border-2 border-black transition-all duration-200 no-underline"
+            style={{ fontSize: "clamp(15px, 1.6vw, 22px)", fontWeight: 600 }}
           >
             CONTÁCTANOS ☆
           </Link>
           <Link
             to="/imprenta"
-            className="bg-transparent text-black rounded-[9px] px-10 py-4 hover:bg-black hover:text-white border-2 border-black transition-all duration-200 no-underline"
-            style={{ fontSize: "clamp(16px, 1.6vw, 24px)", fontWeight: 300 }}
+            className="bg-transparent text-black rounded-[9px] px-8 py-4 hover:bg-black hover:text-white border-2 border-black transition-all duration-200 no-underline"
+            style={{ fontSize: "clamp(15px, 1.6vw, 22px)", fontWeight: 300 }}
           >
             VER SERVICIOS
           </Link>
