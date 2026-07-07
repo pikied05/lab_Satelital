@@ -44,23 +44,22 @@ function HeroSection() {
       className="relative bg-white overflow-hidden"
       style={{ minHeight: "calc(100vh - 90px)", fontFamily: NR }}
     >
-      {/* Personaje izquierda — visible en todos los tamaños */}
+      {/* ===== DESKTOP / TABLET (lg+): monitos a los costados, mas grandes ===== */}
       <div
-        className="absolute top-[8%] left-0 pointer-events-none select-none"
-        style={{ width: "clamp(90px, 28%, 420px)", transform: "translateX(-12%)", zIndex: 0 }}
+        className="hidden lg:block absolute top-[6%] left-0 pointer-events-none select-none"
+        style={{ width: "clamp(140px, 34%, 520px)", transform: "translateX(-10%)", zIndex: 0 }}
       >
         <img src={imgMonitos1} alt="" className="w-full h-auto" />
       </div>
 
-      {/* Personaje derecha — visible en todos los tamaños */}
       <div
-        className="absolute top-[14%] right-0 pointer-events-none select-none"
-        style={{ width: "clamp(80px, 25%, 380px)", transform: "translateX(12%) scaleX(-1)", zIndex: 0 }}
+        className="hidden lg:block absolute top-[12%] right-0 pointer-events-none select-none"
+        style={{ width: "clamp(120px, 30%, 460px)", transform: "translateX(10%) scaleX(-1)", zIndex: 0 }}
       >
         <img src={imgMonitos2} alt="" className="w-full h-auto" />
       </div>
 
-      <div className="relative w-full px-3 sm:px-4 pt-4" style={{ zIndex: 1 }}>
+      <div className="hidden lg:block relative w-full px-3 sm:px-4 pt-4" style={{ zIndex: 1 }}>
         <img
           src={imgLogoNegro}
           alt="Laboratorio Satelital"
@@ -70,7 +69,7 @@ function HeroSection() {
       </div>
 
       <div
-        className="relative flex flex-col items-center text-center px-5 pt-3 pb-10 gap-5"
+        className="hidden lg:flex relative flex-col items-center text-center px-5 pt-3 pb-10 gap-5"
         style={{ zIndex: 2 }}
       >
         <p
@@ -86,6 +85,39 @@ function HeroSection() {
         >
           CONTÁCTANOS
         </Link>
+      </div>
+
+      {/* ===== MOBILE (hasta lg): todo centrado en columna, monito arriba y abajo ===== */}
+      <div className="flex lg:hidden flex-col items-center text-center px-5 pt-8 pb-10 gap-4" style={{ zIndex: 1 }}>
+        <div className="pointer-events-none select-none" style={{ width: "62%", maxWidth: 260 }}>
+          <img src={imgMonitos1} alt="" className="w-full h-auto" />
+        </div>
+
+        <img
+          src={imgLogoNegro}
+          alt="Laboratorio Satelital"
+          className="w-full mx-auto block object-contain"
+          style={{ maxWidth: 480 }}
+        />
+
+        <p
+          className="text-black max-w-[420px]"
+          style={{ fontSize: "clamp(15px, 4vw, 20px)", fontWeight: 300, lineHeight: 1.45 }}
+        >
+          orbita entre conceptos e ideas, conecta recibe información y la reproduce y acercan.
+        </p>
+
+        <Link
+          to="/contacto"
+          className="bg-[#d9d9d9] border-2 border-black rounded-[9px] px-7 py-3 hover:bg-black hover:text-white transition-all duration-200 no-underline text-black"
+          style={{ fontSize: "clamp(15px, 4vw, 20px)", fontWeight: 300 }}
+        >
+          CONTÁCTANOS
+        </Link>
+
+        <div className="pointer-events-none select-none" style={{ width: "70%", maxWidth: 300, transform: "scaleX(-1)" }}>
+          <img src={imgMonitos2} alt="" className="w-full h-auto" />
+        </div>
       </div>
     </section>
   );
