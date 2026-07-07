@@ -107,7 +107,7 @@ export function Nosotrxs() {
             {integrantes.map((p, i) => (
               <div
                 key={p.nombre}
-                className="px-8 lg:px-12 py-5 flex items-center justify-between group hover:bg-[#d9d9d9] transition-colors duration-200"
+                className="px-8 lg:px-12 py-5 flex items-center justify-between flex-wrap gap-1 group hover:bg-[#d9d9d9] transition-colors duration-200"
               >
                 <div className="flex items-center gap-4">
                   <span
@@ -138,11 +138,11 @@ export function Nosotrxs() {
               className="text-black mb-4"
               style={{ fontSize: "clamp(14px, 1.2vw, 18px)", fontWeight: 300, lineHeight: 1.6 }}
             >
-              ¿Querés sumarte, colaborar o simplemente saber más de lo que
+              ¿Quieres sumarte, colaborar o simplemente saber más de lo que
               hacemos?
             </p>
             <a
-              href="mailto:hola@laboratorioateslital.cl"
+              href="mailto:lab.satelital@gmail.com"
               className="inline-block border border-black rounded-[6px] px-6 py-2 text-black hover:bg-black hover:text-white transition-all duration-200"
               style={{ fontSize: "clamp(13px, 1.1vw, 17px)", fontWeight: 600 }}
             >
@@ -155,3 +155,4 @@ export function Nosotrxs() {
     </section>
   );
 }
+
