@@ -27,7 +27,7 @@ const servicios: Record<
     descripcionLarga:
       "La risografía es una técnica de impresión stencil que produce resultados únicos e irrepetibles. Cada pasada de tinta tiene su propia textura, y el registro imperfecto entre colores es parte del encanto del proceso. Ideal para fanzines, afiches, papelería y cualquier proyecto que busque una estética editorial artesanal y singular. Trabajamos con tintas de base soja sobre papel sin blanqueadores ópticos.",
     specs: [
-      { label: "Formatos", valor: "A5 / A4 / A3 / A2 (preguntar por otros)" },
+      { label: "Formatos", valor: "A5 / A4 / A3 / (preguntar por otros)" },
       { label: "Colores por trabajo", valor: "Hasta 3 pasadas de color" },
       { label: "Tiraje mínimo", valor: "20 unidades" },
       { label: "Tiraje máximo", valor: "Sin límite (consultar tiempos)" },
@@ -45,13 +45,10 @@ const servicios: Record<
     ],
     coloresDisponibles: [
       { nombre: "Negro", hex: "#1a1a1a" },
-      { nombre: "Azul fluorescente", hex: "#0a4fff" },
-      { nombre: "Rojo", hex: "#e8292a" },
+      { nombre: "Azul Medio", hex: "#3255a4" },
       { nombre: "Amarillo", hex: "#ffe800" },
-      { nombre: "Verde", hex: "#00a95c" },
       { nombre: "Naranja", hex: "#ff6c2f" },
-      { nombre: "Rosa", hex: "#f06eaa" },
-      { nombre: "Violeta", hex: "#6c52a3" },
+      { nombre: "Rosa Flourescente", hex: "#ff48b0" },
     ],
     proceso: [
       { paso: "01 — Envío de archivos", descripcion: "Nos mandás los archivos separados por color en PDF o TIFF 300 dpi, escala de grises. Si necesitás ayuda con la separación, consultá el servicio B." },
@@ -61,9 +58,9 @@ const servicios: Record<
       { paso: "05 — Entrega", descripcion: "Retiro en el laboratorio o envío por correo. Embalamos con cuidado para que lleguen en perfecto estado." },
     ],
     precios: [
-      { rango: "20 – 50 unidades", precio: "Desde $4.500 / u." },
-      { rango: "51 – 100 unidades", precio: "Desde $3.200 / u." },
-      { rango: "101 – 300 unidades", precio: "Desde $2.100 / u." },
+      { rango: "20 – 50 unidades", precio: "Desde $4.5 / u." },
+      { rango: "51 – 100 unidades", precio: "Desde $3.2 / u." },
+      { rango: "101 – 300 unidades", precio: "Desde $2.1 / u." },
       { rango: "+ 300 unidades", precio: "Precio especial" },
     ],
     notas:
@@ -93,11 +90,10 @@ const servicios: Record<
     ],
     coloresDisponibles: [
       { nombre: "Negro", hex: "#1a1a1a" },
-      { nombre: "Azul fluorescente", hex: "#0a4fff" },
-      { nombre: "Rojo", hex: "#e8292a" },
+      { nombre: "Azul Medio", hex: "#3255a4" },
       { nombre: "Amarillo", hex: "#ffe800" },
-      { nombre: "Verde", hex: "#00a95c" },
       { nombre: "Naranja", hex: "#ff6c2f" },
+      { nombre: "Rosa Flourescente", hex: "#ff48b0" },
     ],
     proceso: [
       { paso: "01 — Brief", descripcion: "Nos contás tu proyecto: qué es, para qué sirve, quién lo va a leer, qué referencias tenés. Cuanto más info, mejor." },
@@ -138,13 +134,10 @@ const servicios: Record<
     ],
     coloresDisponibles: [
       { nombre: "Negro", hex: "#1a1a1a" },
-      { nombre: "Azul fluorescente", hex: "#0a4fff" },
-      { nombre: "Rojo", hex: "#e8292a" },
+      { nombre: "Azul Medio", hex: "#3255a4" },
       { nombre: "Amarillo", hex: "#ffe800" },
-      { nombre: "Verde", hex: "#00a95c" },
       { nombre: "Naranja", hex: "#ff6c2f" },
-      { nombre: "Rosa", hex: "#f06eaa" },
-      { nombre: "Violeta", hex: "#6c52a3" },
+      { nombre: "Rosa Flourescente", hex: "#ff48b0" },
     ],
     proceso: [
       { paso: "01 — Concepto y formato", descripcion: "Definimos juntos el formato, la cantidad de páginas, los colores y el tipo de encuadernación según tu proyecto y presupuesto." },
@@ -185,12 +178,10 @@ const servicios: Record<
     ],
     coloresDisponibles: [
       { nombre: "Negro", hex: "#1a1a1a" },
-      { nombre: "Azul fluorescente", hex: "#0a4fff" },
-      { nombre: "Rojo", hex: "#e8292a" },
+      { nombre: "Azul Medio", hex: "#3255a4" },
       { nombre: "Amarillo", hex: "#ffe800" },
-      { nombre: "Verde", hex: "#00a95c" },
       { nombre: "Naranja", hex: "#ff6c2f" },
-      { nombre: "Rosa", hex: "#f06eaa" },
+      { nombre: "Rosa Flourescente", hex: "#ff48b0" },
     ],
     proceso: [
       { paso: "01 — Requisito previo", descripcion: "Verificamos que hayas completado el taller introductorio. Si no lo hiciste, te inscribimos en la próxima fecha." },

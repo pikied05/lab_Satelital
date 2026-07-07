@@ -7,8 +7,8 @@ const servicios = [
     num: "A",
     id: "a",
     nombre: "Impresión Risográfica",
-    formatos: "A5 / A4 / A3 / A2",
-    colores: "Hasta 3 colores por trabajo",
+    formatos: "A5 / A4 / A3 ",
+    colores: "Hasta 5 colores por trabajo",
     detalle:
       "Impresión en risógrafo con tintas de soja en papel reciclado o de tu elección. Tiradas mínimas de 20 ejemplares. Apto para fanzines, afiches, papelería y publicaciones.",
     tirada: "Desde 20 unidades",
@@ -18,20 +18,20 @@ const servicios = [
     id: "b",
     nombre: "Diseño + Impresión",
     formatos: "A5 / A4 / A3",
-    colores: "1 a 2 colores",
+    colores: "1 a 5 colores",
     detalle:
       "Te acompañamos en el proceso de diseño y adaptación de tus archivos para lograr el mejor resultado en risógrafo. Separación de colores y ajuste técnico incluido.",
-    tirada: "Desde 50 unidades",
+    tirada: "Desde 20 unidades",
   },
   {
     num: "C",
     id: "c",
     nombre: "Publicaciones & Fanzines",
     formatos: "A6 / A5 / A4 plegado",
-    colores: "1 a 4 colores",
+    colores: "1 a 5 colores",
     detalle:
       "Producción integral de tu publicación: diseño, separación de colores, impresión, plegado y encuadernación artesanal. Ideal para autoeditorxs y colectivos.",
-    tirada: "Desde 30 unidades",
+    tirada: "Desde 20 unidades",
   },
   {
     num: "D",
@@ -75,10 +75,9 @@ export function Imprenta() {
           style={{ fontSize: "clamp(16px, 2vw, 28px)", fontWeight: 300, lineHeight: 1.5 }}
         >
           Contamos con una{" "}
-          <strong style={{ fontWeight: 700 }}>Riso Graph RP3700</strong> de dos
-          colores. Trabajamos con{" "}
-          <strong style={{ fontWeight: 700 }}>tintas de soja</strong> sobre
-          papel reciclado. Producción consciente, tirajes accesibles, estética
+          <strong style={{ fontWeight: 700 }}>Riso Graph RZ390</strong>. Trabajamos con{" "}
+          <strong style={{ fontWeight: 700 }}>tintas de soya y arroz</strong> sobre
+          papel bristol, opalina, tintoretto y más. Producción consciente, tirajes accesibles, estética
           única.
         </p>
       </div>
@@ -143,10 +142,10 @@ export function Imprenta() {
         <p
           style={{ fontSize: "clamp(18px, 2.2vw, 34px)", fontWeight: 300, lineHeight: 1.4 }}
         >
-          ¿Tenés un proyecto? Hablemos.
+          ¿Tienes un proyecto? Hablemos.
         </p>
         <a
-          href="mailto:hola@laboratoriosatelital.cl"
+          href="mailto:lab.satelital@gmail.com"
           className="border border-white rounded-[6px] px-8 py-3 text-white hover:bg-white hover:text-black transition-all duration-200 whitespace-nowrap"
           style={{ fontSize: "clamp(14px, 1.3vw, 20px)", fontWeight: 600 }}
         >

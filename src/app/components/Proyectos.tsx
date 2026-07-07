@@ -4,7 +4,7 @@ const proyectos = [
   {
     id: "001",
     año: "2025",
-    titulo: "Órbita Común",
+    titulo: "Cuidar la llama",
     categoria: "Publicación colectiva",
     descripcion:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Publicación editorial en risógrafo desarrollada colectivamente por artistas de distintas disciplinas. Cuatro colores, treinta y dos páginas, tirada de 150 ejemplares.",
@@ -12,12 +12,12 @@ const proyectos = [
   },
   {
     id: "002",
-    año: "2024",
-    titulo: "Mapa de lo Invisible",
-    categoria: "Intervención + impresión",
+    año: "2025",
+    titulo: "Orbita entre conceptos e ideas",
+    categoria: "Diseño + impresión",
     descripcion:
       "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Proyecto de cartografía afectiva que combinó talleres participativos con la producción de un mapa impreso en risógrafo de gran formato. Distribuido gratuitamente en espacios culturales.",
-    tags: ["Cartografía", "Participativo", "Gran formato"],
+    tags: ["Risografía", "Colectivo", "Poster"],
   },
   {
     id: "003",

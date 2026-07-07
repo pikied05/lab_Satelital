@@ -286,7 +286,7 @@ function CTAContacto() {
           className="text-black"
           style={{ fontSize: "clamp(26px, 4vw, 64px)", fontWeight: 700, lineHeight: 1.1 }}
         >
-          ¿Querés cotizar,<br />
+          ¿Quieres cotizar,<br />
           saber más o<br />
           proponernos<br />
           un proyecto?
@@ -296,7 +296,7 @@ function CTAContacto() {
           className="text-black/60 max-w-[440px]"
           style={{ fontSize: "clamp(14px, 1.5vw, 22px)", fontWeight: 300, lineHeight: 1.6 }}
         >
-          Escribinos y te respondemos en menos de 48 horas hábiles. Trabajamos con artistas, colectivos, editoriales y cualquier persona con ganas de imprimir.
+          Escríbenos y te respondemos en menos de 48 horas hábiles. Trabajamos con artistas, colectivos, editoriales y cualquier persona con ganas de imprimir.
         </p>
 
         <div className="flex flex-col sm:flex-row flex-wrap justify-center gap-3 w-full sm:w-auto">

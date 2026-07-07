@@ -80,7 +80,7 @@ export function ContactoPage() {
                 className="text-black hover:text-black/60 transition-colors"
                 style={{ fontSize: "clamp(15px, 1.5vw, 22px)", fontWeight: 400 }}
               >
-                hola@laboratoriosatelital.cl
+                lab.satelital@gmail.com
               </a>
             </div>
             <div>
@@ -91,13 +91,13 @@ export function ContactoPage() {
                 Instagram
               </p>
               <a
-                href="https://instagram.com/laboratoriosatelital"
+                href="https://instagram.com/lab.satelital"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-black hover:text-black/60 transition-colors"
                 style={{ fontSize: "clamp(15px, 1.5vw, 22px)", fontWeight: 400 }}
               >
-                @laboratoriosatelital
+                @lab.satelital
               </a>
             </div>
             <div>
@@ -111,7 +111,7 @@ export function ContactoPage() {
                 className="text-black"
                 style={{ fontSize: "clamp(15px, 1.5vw, 22px)", fontWeight: 300 }}
               >
-                Martes a sábado, 10:00 – 19:00
+                Lunes a Viernes, 10:00 – 18:00
               </p>
             </div>
           </div>
@@ -121,7 +121,7 @@ export function ContactoPage() {
               className="text-black/50"
               style={{ fontSize: "clamp(13px, 1.1vw, 17px)", fontWeight: 300, lineHeight: 1.6 }}
             >
-              ☆ Para consultas de talleres incluí la fecha de interés. Para
+              ☆ Para consultas de talleres incluye la fecha de interés. Para
               imprenta, el formato y tiraje aproximado. Así podemos darte un
               presupuesto más preciso.
             </p>

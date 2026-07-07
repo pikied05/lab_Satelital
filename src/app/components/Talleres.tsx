@@ -4,7 +4,7 @@ const talleres = [
   {
     id: "01",
     titulo: "Introducción a la Risografía",
-    fecha: "Agosto 2025",
+    fecha: "Proximamente",
     duracion: "2 días / 8 horas",
     cupos: "10 personas",
     descripcion:
@@ -13,7 +13,7 @@ const talleres = [
   {
     id: "02",
     titulo: "Diseño Editorial Experimental",
-    fecha: "Septiembre 2025",
+    fecha: "Proximamente",
     duracion: "3 días / 12 horas",
     cupos: "8 personas",
     descripcion:
@@ -22,7 +22,7 @@ const talleres = [
   {
     id: "03",
     titulo: "Fanzine & Autoedición",
-    fecha: "Octubre 2025",
+    fecha: "Proximamente",
     duracion: "1 día / 6 horas",
     cupos: "12 personas",
     descripcion:
@@ -30,8 +30,8 @@ const talleres = [
   },
   {
     id: "04",
-    titulo: "Serigrafía & Procesos Alternativos",
-    fecha: "Noviembre 2025",
+    titulo: "Risografía & Procesos Alternativos",
+    fecha: "Proximamente",
     duracion: "2 días / 10 horas",
     cupos: "8 personas",
     descripcion:

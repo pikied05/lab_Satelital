@@ -8,12 +8,10 @@ const valores = [
 ];
 
 const integrantes = [
-  { nombre: "A. Morales", rol: "Risografía & Producción" },
-  { nombre: "C. Fernández", rol: "Diseño Editorial" },
-  { nombre: "M. Torres", rol: "Talleres & Pedagogía" },
-  { nombre: "R. Soto", rol: "Gestión & Proyectos" },
-  { nombre: "V. Díaz", rol: "Arte & Experimentación" },
-  { nombre: "L. Quiroga", rol: "Comunicación" },
+  { nombre: "M. Loa", rol: "Risografía & Producción & Diseño Editorial" },
+  //{ nombre: "R. Soto", rol: "Gestión & Proyectos" },
+  { nombre: "M. Niño", rol: "Arte & Experimentación" },
+  { nombre: "V. Ortiz", rol: "Comunicación" },
 ];
 
 export function Nosotrxs() {
@@ -148,7 +146,7 @@ export function Nosotrxs() {
               className="inline-block border border-black rounded-[6px] px-6 py-2 text-black hover:bg-black hover:text-white transition-all duration-200"
               style={{ fontSize: "clamp(13px, 1.1vw, 17px)", fontWeight: 600 }}
             >
-              hola@laboratoriosatelital.cl
+              lab.satelital@gmail.com
             </a>
           </div>
         </div>
