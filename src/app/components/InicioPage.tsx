@@ -96,7 +96,7 @@ function HeroSection() {
         <img
           src={imgLogoNegro}
           alt="Laboratorio Satelital"
-          className="w-full mx-auto block object-contain -mt-6"
+          className="w-full mx-auto block object-contain -mt-20"
           style={{ maxWidth: 480 }}
         />
 
