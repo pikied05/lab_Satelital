@@ -14,9 +14,9 @@ export function TiendaPage() {
           Tienda cerrada temporalmente
         </p>
         <p className="text-black/50" style={{ fontSize: "clamp(14px, 1.3vw, 20px)", fontWeight: 300 }}>
-          Volvemos pronto. Escribinos a{" "}
-          <a href="mailto:hola@laboratoriosatelital.cl" className="underline">
-            hola@laboratoriosatelital.cl
+          Volvemos pronto. Escríbenos a{" "}
+          <a href="mailto:lab.satelital@gmail.com" className="underline">
+            lab.satelital@gmail.com
           </a>
         </p>
       </div>
