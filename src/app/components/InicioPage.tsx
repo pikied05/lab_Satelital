@@ -88,20 +88,20 @@ function HeroSection() {
       </div>
 
       {/* ===== MOBILE (hasta lg): todo centrado en columna, monito arriba y abajo ===== */}
-      <div className="flex lg:hidden flex-col items-center text-center px-5 pt-8 pb-10 gap-4" style={{ zIndex: 1 }}>
-        <div className="pointer-events-none select-none" style={{ width: "62%", maxWidth: 260 }}>
+      <div className="flex lg:hidden flex-col items-center text-center px-5 pt-2 pb-6 gap-1" style={{ zIndex: 1 }}>
+        <div className="pointer-events-none select-none" style={{ width: "78%", maxWidth: 320 }}>
           <img src={imgMonitos1} alt="" className="w-full h-auto" />
         </div>
 
         <img
           src={imgLogoNegro}
           alt="Laboratorio Satelital"
-          className="w-full mx-auto block object-contain"
+          className="w-full mx-auto block object-contain -mt-6"
           style={{ maxWidth: 480 }}
         />
 
         <p
-          className="text-black max-w-[420px]"
+          className="text-black max-w-[420px] -mt-2"
           style={{ fontSize: "clamp(15px, 4vw, 20px)", fontWeight: 300, lineHeight: 1.45 }}
         >
           orbita entre conceptos e ideas, conecta recibe información y la reproduce y acercan.
@@ -109,13 +109,13 @@ function HeroSection() {
 
         <Link
           to="/contacto"
-          className="bg-[#d9d9d9] border-2 border-black rounded-[9px] px-7 py-3 hover:bg-black hover:text-white transition-all duration-200 no-underline text-black"
+          className="bg-[#d9d9d9] border-2 border-black rounded-[9px] px-7 py-3 hover:bg-black hover:text-white transition-all duration-200 no-underline text-black mt-2"
           style={{ fontSize: "clamp(15px, 4vw, 20px)", fontWeight: 300 }}
         >
           CONTÁCTANOS
         </Link>
 
-        <div className="pointer-events-none select-none" style={{ width: "70%", maxWidth: 300, transform: "scaleX(-1)" }}>
+        <div className="pointer-events-none select-none -mt-4" style={{ width: "85%", maxWidth: 360, transform: "scaleX(-1)" }}>
           <img src={imgMonitos2} alt="" className="w-full h-auto" />
         </div>
       </div>
