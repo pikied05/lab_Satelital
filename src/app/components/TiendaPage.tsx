@@ -1,5 +1,6 @@
 import { Link } from "react-router";
 import { useAdmin } from "../context/AdminContext";
+import { siteContent } from "../data";
 
 const NR = "'Neue Regrade', sans-serif";
 
@@ -15,8 +16,8 @@ export function TiendaPage() {
         </p>
         <p className="text-black/50" style={{ fontSize: "clamp(14px, 1.3vw, 20px)", fontWeight: 300 }}>
           Volvemos pronto. Escríbenos a{" "}
-          <a href="mailto:lab.satelital@gmail.com" className="underline">
-            lab.satelital@gmail.com
+          <a href={`mailto:${siteContent.brand.email}`} className="underline">
+            {siteContent.brand.email}
           </a>
         </p>
       </div>
@@ -55,7 +56,6 @@ export function TiendaPage() {
       {/* Grid */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
         {productos.map((p, i) => {
-          const isLastRow = i >= productos.length - (productos.length % 3 || 3);
           return (
             <Link
               key={p.id}

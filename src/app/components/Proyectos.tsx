@@ -1,43 +1,8 @@
-const NR = "'Neue Regrade', sans-serif";
+import { Link } from "react-router";
+import { ProjectDescription } from "./ProjectDescription";
+import { proyectos } from "../data/proyectos";
 
-const proyectos = [
-  {
-    id: "001",
-    año: "2025",
-    titulo: "Cuidar la llama",
-    categoria: "Publicación colectiva",
-    descripcion:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Publicación editorial en risógrafo desarrollada colectivamente por artistas de distintas disciplinas. Cuatro colores, treinta y dos páginas, tirada de 150 ejemplares.",
-    tags: ["Risografía", "Publicación", "Colectivo"],
-  },
-  {
-    id: "002",
-    año: "2025",
-    titulo: "Orbita entre conceptos e ideas",
-    categoria: "Diseño + impresión",
-    descripcion:
-      "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Proyecto de cartografía afectiva que combinó talleres participativos con la producción de un mapa impreso en risógrafo de gran formato. Distribuido gratuitamente en espacios culturales.",
-    tags: ["Risografía", "Colectivo", "Poster"],
-  },
-  {
-    id: "003",
-    año: "2024",
-    titulo: "Archivo Desbordado",
-    categoria: "Fanzine serie",
-    descripcion:
-      "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Serie de cinco fanzines que exploran el archivo personal como material político. Cada número es una colaboración con un artista diferente. Impresión en risógrafo dos colores.",
-    tags: ["Fanzine", "Archivo", "Serie"],
-  },
-  {
-    id: "004",
-    año: "2023",
-    titulo: "Tinta & Territorio",
-    categoria: "Residencia + publicación",
-    descripcion:
-      "Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Residencia de producción editorial que reunió a ocho artistas durante dos semanas para crear una publicación colectiva sobre territorio y paisaje. Resultado: libro de 64 páginas, cuatro colores.",
-    tags: ["Residencia", "Territorio", "Colaboración"],
-  },
-];
+const NR = "'Neue Regrade', sans-serif";
 
 export function Proyectos() {
   return (
@@ -65,9 +30,10 @@ export function Proyectos() {
       {/* Projects grid */}
       <div className="grid grid-cols-1 lg:grid-cols-2">
         {proyectos.map((proyecto, i) => (
-          <div
+          <Link
             key={proyecto.id}
-            className={`p-8 lg:p-12 flex flex-col gap-4 border-black cursor-pointer group hover:bg-black hover:text-white transition-colors duration-300
+            to={`/proyectos/${proyecto.id}`}
+            className={`p-8 lg:p-12 flex flex-col gap-4 border-black cursor-pointer group hover:bg-black hover:text-white transition-colors duration-300 no-underline
               ${i % 2 === 0 ? "lg:border-r" : ""}
               ${i < proyectos.length - 2 ? "border-b" : ""}
               ${i === proyectos.length - 1 && proyectos.length % 2 !== 0 ? "lg:border-t-0" : ""}
@@ -110,7 +76,7 @@ export function Proyectos() {
               className="text-black/70 group-hover:text-white/70 transition-colors flex-1"
               style={{ fontSize: "clamp(14px, 1.3vw, 20px)", fontWeight: 300, lineHeight: 1.6 }}
             >
-              {proyecto.descripcion}
+              <ProjectDescription text={proyecto.descripcion} />
             </p>
 
             {/* Tags */}
@@ -136,7 +102,7 @@ export function Proyectos() {
               </span>
               <span className="text-black group-hover:text-white transition-colors text-xl">→</span>
             </div>
-          </div>
+          </Link>
         ))}
       </div>
     </section>

@@ -1,4 +1,5 @@
 import { Link } from "react-router";
+import { siteContent } from "../data";
 
 const NR = "'Neue Regrade', sans-serif";
 
@@ -145,7 +146,7 @@ export function Imprenta() {
           ¿Tienes un proyecto? Hablemos.
         </p>
         <a
-          href="mailto:lab.satelital@gmail.com"
+          href={`mailto:${siteContent.brand.email}`}
           className="border border-white rounded-[6px] px-8 py-3 text-white hover:bg-white hover:text-black transition-all duration-200 whitespace-nowrap"
           style={{ fontSize: "clamp(14px, 1.3vw, 20px)", fontWeight: 600 }}
         >

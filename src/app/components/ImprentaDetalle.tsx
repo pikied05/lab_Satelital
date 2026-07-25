@@ -1,6 +1,8 @@
-import { Link, useParams, useNavigate } from "react-router";
+import { Link, useParams } from "react-router";
+import { siteContent } from "../data";
 
 const NR = "'Neue Regrade', sans-serif";
+const coloresDisponiblesBase = [...siteContent.imprenta.coloresDisponibles];
 
 const servicios: Record<
   string,
@@ -43,13 +45,7 @@ const servicios: Record<
       "Papel de diario 52g",
       "Papel propio (consultar compatibilidad)",
     ],
-    coloresDisponibles: [
-      { nombre: "Negro", hex: "#1a1a1a" },
-      { nombre: "Azul Medio", hex: "#3255a4" },
-      { nombre: "Amarillo", hex: "#ffe800" },
-      { nombre: "Naranja", hex: "#ff6c2f" },
-      { nombre: "Rosa Flourescente", hex: "#ff48b0" },
-    ],
+    coloresDisponibles: [...coloresDisponiblesBase],
     proceso: [
       { paso: "01 — Envío de archivos", descripcion: "Nos mandás los archivos separados por color en PDF o TIFF 300 dpi, escala de grises. Si necesitás ayuda con la separación, consultá el servicio B." },
       { paso: "02 — Revisión técnica", descripcion: "Revisamos los archivos dentro de las 48 hs hábiles y te confirmamos que todo esté listo para imprimir. Si hay ajustes menores los hacemos nosotros." },
@@ -88,13 +84,7 @@ const servicios: Record<
       "Colorplan 135g",
       "Papel propio (consultar)",
     ],
-    coloresDisponibles: [
-      { nombre: "Negro", hex: "#1a1a1a" },
-      { nombre: "Azul Medio", hex: "#3255a4" },
-      { nombre: "Amarillo", hex: "#ffe800" },
-      { nombre: "Naranja", hex: "#ff6c2f" },
-      { nombre: "Rosa Flourescente", hex: "#ff48b0" },
-    ],
+    coloresDisponibles: [...coloresDisponiblesBase],
     proceso: [
       { paso: "01 — Brief", descripcion: "Nos contás tu proyecto: qué es, para qué sirve, quién lo va a leer, qué referencias tenés. Cuanto más info, mejor." },
       { paso: "02 — Propuesta de diseño", descripcion: "En 5 días hábiles te presentamos una propuesta inicial. Ajustamos hasta dos rondas de cambios dentro del presupuesto." },
@@ -132,13 +122,7 @@ const servicios: Record<
       "Papel de diario 52g (newsprint)",
       "Kraft 90g (tapa alternativa)",
     ],
-    coloresDisponibles: [
-      { nombre: "Negro", hex: "#1a1a1a" },
-      { nombre: "Azul Medio", hex: "#3255a4" },
-      { nombre: "Amarillo", hex: "#ffe800" },
-      { nombre: "Naranja", hex: "#ff6c2f" },
-      { nombre: "Rosa Flourescente", hex: "#ff48b0" },
-    ],
+    coloresDisponibles: [...coloresDisponiblesBase],
     proceso: [
       { paso: "01 — Concepto y formato", descripcion: "Definimos juntos el formato, la cantidad de páginas, los colores y el tipo de encuadernación según tu proyecto y presupuesto." },
       { paso: "02 — Maqueta y diseño", descripcion: "Si necesitás diseño, trabajamos la maqueta completa. Si ya tenés archivos, los revisamos y adaptamos para la riso." },
@@ -176,13 +160,7 @@ const servicios: Record<
       "Papel propio (recomendado traer)",
       "Stock del laboratorio disponible a costo",
     ],
-    coloresDisponibles: [
-      { nombre: "Negro", hex: "#1a1a1a" },
-      { nombre: "Azul Medio", hex: "#3255a4" },
-      { nombre: "Amarillo", hex: "#ffe800" },
-      { nombre: "Naranja", hex: "#ff6c2f" },
-      { nombre: "Rosa Flourescente", hex: "#ff48b0" },
-    ],
+    coloresDisponibles: [...coloresDisponiblesBase],
     proceso: [
       { paso: "01 — Requisito previo", descripcion: "Verificamos que hayas completado el taller introductorio. Si no lo hiciste, te inscribimos en la próxima fecha." },
       { paso: "02 — Reserva de turno", descripcion: "Reservás tu turno con al menos 72 hs de anticipación. Los turnos son de 3 horas, martes a sábado." },

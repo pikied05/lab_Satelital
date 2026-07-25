@@ -1,16 +1,11 @@
 import { useState } from "react";
 import { useSearchParams } from "react-router";
+import { siteContent } from "../data";
 
 const NR = "'Neue Regrade', sans-serif";
 
-const serviciosOpciones = [
-  "Impresión Risográfica",
-  "Diseño + Impresión",
-  "Publicaciones & Fanzines",
-  "Impresión Libre / Auto-operada",
-  "Talleres",
-  "Otro",
-];
+const { contacto, brand } = siteContent;
+const { serviciosOpciones } = contacto;
 
 export function ContactoPage() {
   const [searchParams] = useSearchParams();
@@ -50,7 +45,7 @@ export function ContactoPage() {
           className="text-black/40 uppercase tracking-widest"
           style={{ fontSize: "clamp(12px, 1vw, 16px)", fontWeight: 600 }}
         >
-          Laboratorio Satelital
+          {brand.name}
         </span>
       </div>
 
@@ -76,11 +71,11 @@ export function ContactoPage() {
                 Email
               </p>
               <a
-                href="mailto:lab.satelital@gmail.com"
+                href={`mailto:${brand.email}`}
                 className="text-black hover:text-black/60 transition-colors"
                 style={{ fontSize: "clamp(15px, 1.5vw, 22px)", fontWeight: 400 }}
               >
-                lab.satelital@gmail.com
+                {brand.email}
               </a>
             </div>
             <div>
@@ -91,13 +86,13 @@ export function ContactoPage() {
                 Instagram
               </p>
               <a
-                href="https://instagram.com/lab.satelital"
+                href={brand.instagram.url}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-black hover:text-black/60 transition-colors"
                 style={{ fontSize: "clamp(15px, 1.5vw, 22px)", fontWeight: 400 }}
               >
-                @lab.satelital
+                {brand.instagram.handle}
               </a>
             </div>
             <div>
@@ -111,7 +106,7 @@ export function ContactoPage() {
                 className="text-black"
                 style={{ fontSize: "clamp(15px, 1.5vw, 22px)", fontWeight: 300 }}
               >
-                Lunes a Viernes, 10:00 – 18:00
+                {brand.horario}
               </p>
             </div>
           </div>
@@ -121,9 +116,7 @@ export function ContactoPage() {
               className="text-black/50"
               style={{ fontSize: "clamp(13px, 1.1vw, 17px)", fontWeight: 300, lineHeight: 1.6 }}
             >
-              ☆ Para consultas de talleres incluí la fecha de interés. Para
-              imprenta, el formato y tiraje aproximado. Así podemos darte un
-              presupuesto más preciso.
+              {contacto.mensajeAyuda}
             </p>
           </div>
         </div>

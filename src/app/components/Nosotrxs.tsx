@@ -1,3 +1,5 @@
+import { siteContent } from "../data";
+
 const NR = "'Neue Regrade', sans-serif";
 
 const valores = [
@@ -142,11 +144,11 @@ export function Nosotrxs() {
               hacemos?
             </p>
             <a
-              href="mailto:lab.satelital@gmail.com"
+              href={`mailto:${siteContent.brand.email}`}
               className="inline-block border border-black rounded-[6px] px-6 py-2 text-black hover:bg-black hover:text-white transition-all duration-200"
               style={{ fontSize: "clamp(13px, 1.1vw, 17px)", fontWeight: 600 }}
             >
-              lab.satelital@gmail.com
+              {siteContent.brand.email}
             </a>
           </div>
         </div>

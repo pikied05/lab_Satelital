@@ -1,12 +1,15 @@
 import { Link } from "react-router";
+import { siteContent } from "../data";
 
 const NR = "'Neue Regrade', sans-serif";
+
+const { brand, navigation } = siteContent;
 
 const redes = [
   {
     nombre: "Instagram",
-    handle: "@lab.satelital",
-    url: "https://www.instagram.com/lab.satelital/",
+    handle: brand.instagram.handle,
+    url: brand.instagram.url,
     icono: (
       <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
         <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
@@ -17,8 +20,8 @@ const redes = [
   },
   {
     nombre: "Facebook",
-    handle: "Laboratorio Satelital",
-    url: "https://www.facebook.com/labsatelital",
+    handle: brand.facebook.handle,
+    url: brand.facebook.url,
     icono: (
       <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
         <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z" />
@@ -27,8 +30,8 @@ const redes = [
   },
   {
     nombre: "TikTok",
-    handle: "@lab.satelital",
-    url: "https://tiktok.com/@lab.satelital",
+    handle: brand.tiktok.handle,
+    url: brand.tiktok.url,
     icono: (
       <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
         <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1V9.01a6.33 6.33 0 0 0-.79-.05 6.34 6.34 0 0 0-6.34 6.34 6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.33-6.34V8.69a8.18 8.18 0 0 0 4.78 1.52V6.76a4.85 4.85 0 0 1-1.01-.07z" />
@@ -37,15 +40,7 @@ const redes = [
   },
 ];
 
-const navLinks = [
-  { to: "/", label: "Inicio" },
-  { to: "/talleres", label: "Talleres" },
-  { to: "/proyectos", label: "Proyectos" },
-  { to: "/tienda", label: "Tienda" },
-  { to: "/imprenta", label: "Imprenta" },
-  { to: "/nosotrxs", label: "Nosotrxs" },
-  { to: "/contacto", label: "Contacto" },
-];
+const navLinks = navigation;
 
 export function Footer() {
   return (
@@ -117,11 +112,11 @@ export function Footer() {
                 Email
               </p>
               <a
-                href="mailto:lab.satelital@gmail.com"
+                href={`mailto:${brand.email}`}
                 className="text-white/70 hover:text-white transition-colors"
                 style={{ fontSize: 15, fontWeight: 300 }}
               >
-                lab.satelital@gmail.com
+                {brand.email}
               </a>
             </div>
             <div>
@@ -131,7 +126,7 @@ export function Footer() {
               <p className="text-white/70" style={{ fontSize: 15, fontWeight: 300 }}>
                 Lunes a Viernes
                 <br />
-                10:00 – 18:00
+                {brand.horario.split(",")[1]}
               </p>
             </div>
             <div>
@@ -139,7 +134,7 @@ export function Footer() {
                 Dirección
               </p>
               <p className="text-white/70" style={{ fontSize: 15, fontWeight: 300 }}>
-                Puebla, Mx.
+                {brand.direccion}
               </p>
             </div>
           </div>
@@ -149,7 +144,7 @@ export function Footer() {
       {/* Bottom bar */}
       <div className="border-t border-white/10 px-8 lg:px-12 py-4 flex flex-col sm:flex-row items-center justify-between gap-2">
         <p className="text-white/30" style={{ fontSize: 13, fontWeight: 400 }}>
-          © 2026 Laboratorio Satelital — Todos los derechos reservados
+          {brand.copyright}
         </p>
         <p className="text-white/20" style={{ fontSize: 13, fontWeight: 400 }}>
           Hecho con risógrafía ☆

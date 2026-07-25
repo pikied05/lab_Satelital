@@ -1,42 +1,14 @@
 import { Link } from "react-router";
+import { ProjectDescription } from "./ProjectDescription";
 import imgSateliteConTambor from "../../imports/satelite_conTambor.png";
 import imgMonitos1 from "figma:asset/b5501f120373347acfee5ba1f34957ae482e6e57.png";
 import imgMonitos2 from "figma:asset/a4da76843fe6460a8f2082bc892a8a4f63552551.png";
 import imgMonitos3 from "figma:asset/1d0cbd54a08d5623c2c91bfa1e601485b755149e.png";
 import imgLogoNegro from "figma:asset/860ce298f8cc46b005b7ecb05f8428a5752d67b2.png";
+import { proyectosDestacados } from "../data/proyectos";
 
 const NR = "'Neue Regrade', sans-serif";
 const BANNER_TEXT = "DESCARGA GUÍA DE IMPRESIÓN ☆ ";
-
-const proyectosDestacados = [
-  {
-    id: "001",
-    año: "2025",
-    titulo: "Órbita Común",
-    categoria: "Publicación colectiva",
-    descripcion:
-      "Publicación editorial en risógrafo desarrollada colectivamente por artistas de distintas disciplinas. Cuatro colores, treinta y dos páginas, tirada de 150 ejemplares.",
-    tags: ["Risografía", "Publicación", "Colectivo"],
-  },
-  {
-    id: "002",
-    año: "2024",
-    titulo: "Mapa de lo Invisible",
-    categoria: "Intervención + impresión",
-    descripcion:
-      "Proyecto de cartografía afectiva que combinó talleres participativos con la producción de un mapa impreso en risógrafo de gran formato. Distribuido gratuitamente en espacios culturales.",
-    tags: ["Cartografía", "Participativo", "Gran formato"],
-  },
-  {
-    id: "003",
-    año: "2024",
-    titulo: "Archivo Desbordado",
-    categoria: "Fanzine serie",
-    descripcion:
-      "Serie de cinco fanzines que exploran el archivo personal como material político. Cada número es una colaboración con un artista diferente. Impresión en risógrafo dos colores.",
-    tags: ["Fanzine", "Archivo", "Serie"],
-  },
-];
 
 function HeroSection() {
   return (
@@ -222,7 +194,7 @@ function ProyectosPreview() {
 
       {/* Cards */}
       <div className="grid grid-cols-1 lg:grid-cols-3 divide-y lg:divide-y-0 lg:divide-x divide-black">
-        {proyectosDestacados.map((p, i) => (
+        {proyectosDestacados.map((p) => (
           <Link
             key={p.id}
             to="/proyectos"
@@ -265,7 +237,7 @@ function ProyectosPreview() {
               className="text-black/60 flex-1"
               style={{ fontSize: "clamp(13px, 1.2vw, 18px)", fontWeight: 300, lineHeight: 1.6 }}
             >
-              {p.descripcion}
+              <ProjectDescription text={p.descripcion} />
             </p>
 
             {/* Tags */}

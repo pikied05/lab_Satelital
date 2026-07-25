@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router";
 import imgLogoNegro from "figma:asset/860ce298f8cc46b005b7ecb05f8428a5752d67b2.png";
+import { siteContent } from "../data";
 
 const NR = "'Neue Regrade', sans-serif";
 
@@ -11,14 +12,7 @@ const RISO = [
   { id: "riso-amarillo", r: 1,     g: 0.910, b: 0     },
 ];
 
-const links = [
-  { to: "/talleres",  label: "Talleres"  },
-  { to: "/proyectos", label: "Proyectos" },
-  { to: "/tienda",    label: "Tienda"    },
-  { to: "/imprenta",  label: "Imprenta"  },
-  { to: "/nosotrxs",  label: "Nosotrxs"  },
-  { to: "/contacto",  label: "Contacto"  },
-];
+const links = siteContent.navigation.filter((link) => link.to !== "/");
 
 const leftLinks  = links.slice(0, 3);
 const rightLinks = links.slice(3);
@@ -168,7 +162,7 @@ export function Navbar() {
           {/* Footer del menú */}
           <div className="border-t border-black px-6 py-5 flex-shrink-0">
             <p className="text-black/40" style={{ fontSize: 13, fontWeight: 400 }}>
-              lab.satelital@gmail.com
+              {siteContent.brand.email}
             </p>
           </div>
         </div>
