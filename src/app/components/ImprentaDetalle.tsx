@@ -31,6 +31,7 @@ const servicios: Record<
     precios: { rango: string; precio: string }[];
     catalogo?: {
       master?: { label: string; precio: string }[];
+      pasadas?: { label: string; precio: string }[];
       corte?: { label: string; precio: string }[];
       preprensa?: { label: string; precio: string }[];
       encuadernacion?: { label: string; precio: string }[];
@@ -61,22 +62,29 @@ const servicios: Record<
     ],
     precios: [
       { rango: "Papeles", precio: "Consultar por tipo y gramaje" },
-      { rango: "Master", precio: "Consultar" },
+      { rango: "Master", precio: "$150 - $100" },
       { rango: "Corte", precio: "Consultar" },
-      { rango: "Preprensa", precio: "Consultar" },
+      { rango: "Preprensa", precio: "$300 - $550" },
     ],
     catalogo: {
       master: [
-        { label: "Master base", precio: "Consultar" },
-        { label: "Master para 2 colores", precio: "Consultar" },
+        { label: "Master  1-9 ", precio: "$150" },
+        { label: "Master 10-19", precio: "$120" },
+        { label: "Master 20+", precio: "$100" },
+      ],
+      pasadas: [
+        { label: "Impresiones 1-99", precio: "$4" },
+        { label: "Impresiones 100+", precio: "$3" },
+        { label: "Impresiones 500+", precio: "$2" },
       ],
       corte: [
-        { label: "Corte manual", precio: "Consultar" },
         { label: "Corte con guillotina", precio: "Consultar" },
+        { label: "Redondeo de esquinas", precio: "Consultar" },
       ],
       preprensa: [
-        { label: "Ajuste de archivo", precio: "Consultar" },
-        { label: "Separación de colores", precio: "Consultar" },
+        { label: "Preprensa de 1 a 4 tintas (por imagen)", precio: "$300" },
+        { label: "PP + prueba de impresión 1 a 2 tintas", precio: "$400" },
+        { label: "PP + prueba de impresión 3 a 4 tintas", precio: "$550" },
       ],
       encuadernacion: [
         { label: "Grapado", precio: "Consultar" },
@@ -85,28 +93,28 @@ const servicios: Record<
       ],
       papeles: [
         {
-          nombre: "Munken Lynx 100g",
-          precio: "Consultar",
+          nombre: "Papel Bond 75g",
+          precio: "$1.5 /u. tamaño tabloide",
           imagenes: ["/src/app/assets/placeholder-project-1.jpg", "/src/app/assets/placeholder-project-2.jpg", "/src/app/assets/placeholder-project-3.jpg"],
-          colores: [{ nombre: "Natural", hex: "#d8c7a0" }, { nombre: "Crema", hex: "#e6d7b3" }, { nombre: "Blanco", hex: "#f7f4eb" }],
-          gsm: "100 gsm",
+          colores: [{ nombre: "Ahuesado", hex: "#d8c7a0" }, { nombre: "Crema", hex: "#e6d7b3" }, { nombre: "Blanco", hex: "#f7f4eb" }],
+          gsm: "75 gsm",
           dimensiones: "A4 / A3 / A5",
           descripcion: "Papel de alta calidad para impresiones de tono suave y textura acogedora.",
         },
         {
-          nombre: "Colorplan 135g",
-          precio: "Consultar",
+          nombre: "Papel Bond 90g",
+          precio: "$2.5 /u. tamaño tabloide",
           imagenes: ["/src/app/assets/placeholder-project-2.jpg", "/src/app/assets/placeholder-project-1.jpg", "/src/app/assets/placeholder-project-3.jpg"],
-          colores: [{ nombre: "Azul", hex: "#3255a4" }, { nombre: "Rosa", hex: "#ff48b0" }, { nombre: "Amarillo", hex: "#ffe800" }],
-          gsm: "135 gsm",
-          dimensiones: "A4 / A3",
+          colores: [{ nombre: "Ahuesado", hex: "#d8c7a0" }, { nombre: "Blanco", hex: "#f7f4eb" }],
+          gsm: "90 gsm",
+          dimensiones: "A4 / A3 / A5",
           descripcion: "Papel de color compacto, ideal para piezas de impacto visual y edición experimental.",
         },
         {
           nombre: "Cartulina Bristol 200g",
           precio: "Consultar",
           imagenes: ["/src/app/assets/placeholder-project-3.jpg", "/src/app/assets/placeholder-project-1.jpg", "/src/app/assets/placeholder-project-2.jpg"],
-          colores: [{ nombre: "Blanco", hex: "#f7f4eb" }, { nombre: "Crema", hex: "#e6d7b3" }, { nombre: "Gris", hex: "#c9c9c9" }],
+          colores: [{ nombre: "Blanco", hex: "#f7f4eb" }],
           gsm: "200 gsm",
           dimensiones: "A3 / A4",
           descripcion: "Cartulina rígida y elegante para afiches, posters y piezas de presentación.",
@@ -142,7 +150,7 @@ const servicios: Record<
       { paso: "05 — Entrega", descripcion: "Retiro en el laboratorio o envío por correo. Embalamos con cuidado para que lleguen en perfecto estado." },
     ],
     precios: [
-      { rango: "20 – 50 unidades", precio: "Desde $4.5 / u." },
+      { rango: "20 – 50 unidades", precio: "Desde $19 / u." },
       { rango: "51 – 100 unidades", precio: "Desde $3.2 / u." },
       { rango: "101 – 300 unidades", precio: "Desde $2.1 / u." },
       { rango: "+ 300 unidades", precio: "Precio especial" },
@@ -463,7 +471,7 @@ export function ImprentaDetalle() {
             <div className="space-y-6">
               {servicio.catalogo.master && servicio.catalogo.master.length > 0 && (
                 <div className="border border-black p-6 bg-white">
-                  <h3 className="text-black mb-3 uppercase tracking-widest" style={{ fontSize: 12, fontWeight: 700 }}>Master</h3>
+                  <h3 className="text-black mb-3 uppercase tracking-widest" style={{ fontSize: 12, fontWeight: 700 }}>Master (uno por color)</h3>
                   <div className="space-y-2">
                     {servicio.catalogo.master.map((item) => (
                       <div key={item.label} className="flex items-center justify-between gap-4">

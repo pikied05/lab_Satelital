@@ -1,19 +1,3 @@
-/* Local font loading for Neue Regrade.
-   Put the corresponding font files in public/fonts using these filenames:
-   - NeueRegrade-Light.woff2
-   - NeueRegrade-Light-Italic.woff2
-   - NeueRegrade-Regular.woff2
-   - NeueRegrade-Regular-Italic.woff2
-   - NeueRegrade-Medium.woff2
-   - NeueRegrade-Medium-Italic.woff2
-   - NeueRegrade-Semibold.woff2
-   - NeueRegrade-SemiBold-Italic.woff2
-   - NeueRegrade-Bold.woff2
-   - NeueRegrade-Bold-Italic.woff2
-   - NeueRegrade-Extrabold.woff2
-   - NeueRegrade-ExtraBold-Italic.woff2
-*/
-
 @font-face {
   font-family: 'Neue Regrade';
   font-weight: 300;
