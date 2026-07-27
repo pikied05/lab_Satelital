@@ -48,7 +48,7 @@ export function TiendaPage() {
           className="text-black"
           style={{ fontSize: "clamp(15px, 1.5vw, 22px)", fontWeight: 300, lineHeight: 1.5 }}
         >
-          Publicaciones impresas en risógrafo, afiches y objetos editoriales producidos en el
+          Publicaciones impresas en risografía, afiches y objetos editoriales producidos en el
           laboratorio. Envíos a todo el país. Retiro en taller sin costo.
         </p>
       </div>
@@ -138,12 +138,12 @@ export function TiendaPage() {
           className="text-black/60"
           style={{ fontSize: "clamp(13px, 1.1vw, 17px)", fontWeight: 300 }}
         >
-          ¿Querés algo que no está acá? Escribinos —{" "}
+          ¿Quieres algo que no está acá? Escribinos —{" "}
           <a
-            href="mailto:hola@laboratoriosatelital.cl"
+            href="mailto:lab.satelital@gmail.com"
             className="underline text-black hover:text-black/60 transition-colors"
           >
-            hola@laboratoriosatelital.cl
+            lab.satelital@gmail.com
           </a>
         </p>
         <p

@@ -1,5 +1,6 @@
 import { Link, useParams } from "react-router";
 import { proyectos } from "../data/proyectos";
+import { ProjectDescription } from "./ProjectDescription";
 
 const NR = "'Neue Regrade', sans-serif";
 
@@ -45,7 +46,7 @@ export function ProyectoDetalle() {
             {proyecto.categoria}
           </p>
           <p className="text-black" style={{ fontSize: "clamp(18px, 2vw, 30px)", fontWeight: 300, lineHeight: 1.6 }}>
-            {proyecto.descripcion}
+            <ProjectDescription text={proyecto.descripcion} />
           </p>
 
           <div className="flex flex-wrap gap-2 mt-8">
@@ -74,6 +75,58 @@ export function ProyectoDetalle() {
           </div>
         </div>
       </div>
+
+      {proyecto.tecnicos && (
+        <div className="border-b border-black px-8 lg:px-16 py-10 bg-[#f4f4f4]">
+          <h2 className="text-black mb-6" style={{ fontSize: "clamp(20px, 2vw, 28px)", fontWeight: 700 }}>
+            Información técnica
+          </h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            {proyecto.tecnicos.colores && (
+              <div>
+                <p className="text-black/40 uppercase tracking-widest mb-2" style={{ fontSize: 11, fontWeight: 700 }}>Colores</p>
+                <div className="flex flex-wrap gap-2">
+                  {proyecto.tecnicos.colores.map((color) => (
+                    <span key={color} className="border border-black rounded-full px-3 py-1 text-black/70" style={{ fontSize: 13, fontWeight: 600 }}>
+                      {color}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            )}
+            {proyecto.tecnicos.papel && (
+              <div>
+                <p className="text-black/40 uppercase tracking-widest mb-2" style={{ fontSize: 11, fontWeight: 700 }}>Papel</p>
+                <p className="text-black" style={{ fontSize: 15, fontWeight: 400 }}>{proyecto.tecnicos.papel}</p>
+              </div>
+            )}
+            {proyecto.tecnicos.tiraje && (
+              <div>
+                <p className="text-black/40 uppercase tracking-widest mb-2" style={{ fontSize: 11, fontWeight: 700 }}>Tiraje</p>
+                <p className="text-black" style={{ fontSize: 15, fontWeight: 400 }}>{proyecto.tecnicos.tiraje}</p>
+              </div>
+            )}
+            {proyecto.tecnicos.formato && (
+              <div>
+                <p className="text-black/40 uppercase tracking-widest mb-2" style={{ fontSize: 11, fontWeight: 700 }}>Formato</p>
+                <p className="text-black" style={{ fontSize: 15, fontWeight: 400 }}>{proyecto.tecnicos.formato}</p>
+              </div>
+            )}
+            {proyecto.tecnicos.tinta && (
+              <div>
+                <p className="text-black/40 uppercase tracking-widest mb-2" style={{ fontSize: 11, fontWeight: 700 }}>Tinta</p>
+                <p className="text-black" style={{ fontSize: 15, fontWeight: 400 }}>{proyecto.tecnicos.tinta}</p>
+              </div>
+            )}
+            {proyecto.tecnicos.notas && (
+              <div className="md:col-span-2">
+                <p className="text-black/40 uppercase tracking-widest mb-2" style={{ fontSize: 11, fontWeight: 700 }}>Notas</p>
+                <p className="text-black" style={{ fontSize: 15, fontWeight: 400, lineHeight: 1.6 }}>{proyecto.tecnicos.notas}</p>
+              </div>
+            )}
+          </div>
+        </div>
+      )}
 
       <div className="border-b border-black px-8 lg:px-16 py-4 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3">
         <Link to="/proyectos" className="text-black/60 hover:text-black transition-colors" style={{ fontSize: "clamp(12px, 1vw, 15px)", fontWeight: 600 }}>

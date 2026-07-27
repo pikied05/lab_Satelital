@@ -1,61 +1,9 @@
 import { Link, useParams } from "react-router";
+import { siteContent } from "../data/siteContent";
 
 const NR = "'Neue Regrade', sans-serif";
 
-const talleres = [
-  {
-    id: "01",
-    titulo: "Introducción a la Risografía",
-    fecha: "Próximamente",
-    duracion: "2 días / 8 horas",
-    cupos: "10 personas",
-    descripcion:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aprende los fundamentos de la impresión risográfica, desde la preparación de archivos hasta la operación de la máquina. Exploraremos separación de colores, registro y las posibilidades expresivas únicas de este medio.",
-    detalle:
-      "Este taller está pensado para quienes quieren acercarse por primera vez a la risografía como herramienta de producción y experimentación. Trabajaremos con la máquina de forma guiada, entenderemos cómo preparar archivos y cómo pensar la imagen para este medio.",
-    incluye: ["Introducción técnica", "Preparación de archivos", "Impresión guiada", "Material de apoyo"],
-    imagenes: ["/src/app/assets/placeholder-project-1.jpg", "/src/app/assets/placeholder-project-2.jpg", "/src/app/assets/placeholder-project-3.jpg"],
-  },
-  {
-    id: "02",
-    titulo: "Diseño Editorial Experimental",
-    fecha: "Próximamente",
-    duracion: "3 días / 12 horas",
-    cupos: "8 personas",
-    descripcion:
-      "Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Un taller enfocado en la construcción de publicaciones independientes desde el concepto hasta el objeto impreso. Exploraremos formatos, encuadernación básica y la relación entre diseño y producción.",
-    detalle:
-      "El taller combina diseño, edición y producción para pensar publicaciones como objetos que pueden circular y transformarse. Trabajaremos sobre formatos, ritmo visual y decisiones de impresión.",
-    incluye: ["Maquetación", "Formato y encuadernación", "Revisión de archivos", "Producción de muestra"],
-    imagenes: ["/src/app/assets/placeholder-project-1.jpg", "/src/app/assets/placeholder-project-2.jpg", "/src/app/assets/placeholder-project-3.jpg"],
-  },
-  {
-    id: "03",
-    titulo: "Fanzine & Autoedición",
-    fecha: "Próximamente",
-    duracion: "1 día / 6 horas",
-    cupos: "12 personas",
-    descripcion:
-      "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris. Aprende a hacer tu propio fanzine desde cero. Técnicas de maquetación, impresión en risógrafo y encuadernación artesanal. Cada participante se lleva su propia publicación.",
-    detalle:
-      "Una propuesta práctica para construir un fanzine propio desde la idea hasta la edición final. Veremos cómo pensar el contenido, preparar la maquetación y convertirlo en un objeto impreso.",
-    incluye: ["Maquetación básica", "Impresión", "Encuadernación", "Copia para llevar"],
-    imagenes: ["/src/app/assets/placeholder-project-1.jpg", "/src/app/assets/placeholder-project-2.jpg", "/src/app/assets/placeholder-project-3.jpg"],
-  },
-  {
-    id: "04",
-    titulo: "Risografía & Procesos Alternativos",
-    fecha: "Próximamente",
-    duracion: "2 días / 10 horas",
-    cupos: "8 personas",
-    descripcion:
-      "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore. Un espacio para experimentar con tintas, texturas y soportes no convencionales. Combinamos técnicas de impresión analógica con propuestas conceptuales propias.",
-    detalle:
-      "A través de pruebas en papel, tinta y soportes alternativos, el taller propone abrir preguntas sobre materialidad y proceso. Es ideal para quienes quieren expandir la práctica de la impresión.",
-    incluye: ["Pruebas de tinta", "Texturas y soporte", "Experimentación", "Discusión de proceso"],
-    imagenes: ["/src/app/assets/placeholder-project-1.jpg", "/src/app/assets/placeholder-project-2.jpg", "/src/app/assets/placeholder-project-3.jpg"],
-  },
-];
+const talleres = siteContent.talleres;
 
 export function TallerDetalle() {
   const { id } = useParams<{ id: string }>();

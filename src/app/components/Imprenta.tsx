@@ -5,6 +5,16 @@ const NR = "'Neue Regrade', sans-serif";
 
 const servicios = [
   {
+    num: "00",
+    id: "catalogo",
+    nombre: "Catálogo de producción",
+    formatos: "Papel / master / corte / encuadernación",
+    colores: "Opciones varias",
+    detalle:
+      "Un espacio para consultar papeles, master, corte, preprensa y encuadernación antes de empezar tu impresión.",
+    tirada: "Consultar según proyecto",
+  },
+  {
     num: "A",
     id: "a",
     nombre: "Impresión Risográfica",
@@ -76,7 +86,7 @@ export function Imprenta() {
           style={{ fontSize: "clamp(16px, 2vw, 28px)", fontWeight: 300, lineHeight: 1.5 }}
         >
           Contamos con una{" "}
-          <strong style={{ fontWeight: 700 }}>Riso Graph RZ390</strong>. Trabajamos con{" "}
+          <strong style={{ fontWeight: 700 }}>RisoGraph RZ390</strong>. Trabajamos con{" "}
           <strong style={{ fontWeight: 700 }}>tintas de soya y arroz</strong> sobre
           papel bristol, opalina, tintoretto y más. Producción consciente, tirajes accesibles, estética
           única.

@@ -1,8 +1,20 @@
+import { useState } from "react";
 import { Link, useParams } from "react-router";
 import { siteContent } from "../data";
 
 const NR = "'Neue Regrade', sans-serif";
+const papelesDisponiblesBase = [...siteContent.imprenta.papelesDisponibles];
 const coloresDisponiblesBase = [...siteContent.imprenta.coloresDisponibles];
+
+type PaperCatalogItem = {
+  nombre: string;
+  precio: string;
+  imagenes?: string[];
+  colores?: { nombre: string; hex: string }[];
+  gsm?: string;
+  dimensiones?: string;
+  descripcion?: string;
+};
 
 const servicios: Record<
   string,
@@ -17,10 +29,93 @@ const servicios: Record<
     coloresDisponibles: { nombre: string; hex: string }[];
     proceso: { paso: string; descripcion: string }[];
     precios: { rango: string; precio: string }[];
+    catalogo?: {
+      master?: { label: string; precio: string }[];
+      corte?: { label: string; precio: string }[];
+      preprensa?: { label: string; precio: string }[];
+      encuadernacion?: { label: string; precio: string }[];
+      papeles?: PaperCatalogItem[];
+    };
     notas: string;
     tiempoEntrega: string;
   }
 > = {
+  catalogo: {
+    letra: "CAT",
+    nombre: "Catálogo de producción",
+    categoria: "Producción y acabados",
+    descripcionCorta: "Papeles, master, corte, preprensa y encuadernación para preparar tu pieza.",
+    descripcionLarga:
+      "Este catálogo reúne las opciones de producción más comunes para trabajar en risografía. Desde el tipo de papel hasta las opciones de armado final, cada decisión influye en el resultado final del proyecto.",
+    specs: [
+      { label: "Formato", valor: "Consultable según proyecto" },
+      { label: "Tiraje", valor: "A medida" },
+      { label: "Entrega", valor: "Presupuesto y consulta previa" },
+    ],
+    papeles: [...papelesDisponiblesBase],
+    coloresDisponibles: [...coloresDisponiblesBase],
+    proceso: [
+      { paso: "01 — Consulta", descripcion: "Te orientamos según el proyecto, formato, tiraje y estilo visual que buscás." },
+      { paso: "02 — Selección de materiales", descripcion: "Elegimos papel, tinta, master, corte y acabados según la pieza." },
+      { paso: "03 — Producción", descripcion: "Armamos la propuesta técnica y te enviamos presupuesto o indicaciones para avanzar." },
+    ],
+    precios: [
+      { rango: "Papeles", precio: "Consultar por tipo y gramaje" },
+      { rango: "Master", precio: "Consultar" },
+      { rango: "Corte", precio: "Consultar" },
+      { rango: "Preprensa", precio: "Consultar" },
+    ],
+    catalogo: {
+      master: [
+        { label: "Master base", precio: "Consultar" },
+        { label: "Master para 2 colores", precio: "Consultar" },
+      ],
+      corte: [
+        { label: "Corte manual", precio: "Consultar" },
+        { label: "Corte con guillotina", precio: "Consultar" },
+      ],
+      preprensa: [
+        { label: "Ajuste de archivo", precio: "Consultar" },
+        { label: "Separación de colores", precio: "Consultar" },
+      ],
+      encuadernacion: [
+        { label: "Grapado", precio: "Consultar" },
+        { label: "Costura", precio: "Consultar" },
+        { label: "Encuadernado rústica", precio: "Consultar" },
+      ],
+      papeles: [
+        {
+          nombre: "Munken Lynx 100g",
+          precio: "Consultar",
+          imagenes: ["/src/app/assets/placeholder-project-1.jpg", "/src/app/assets/placeholder-project-2.jpg", "/src/app/assets/placeholder-project-3.jpg"],
+          colores: [{ nombre: "Natural", hex: "#d8c7a0" }, { nombre: "Crema", hex: "#e6d7b3" }, { nombre: "Blanco", hex: "#f7f4eb" }],
+          gsm: "100 gsm",
+          dimensiones: "A4 / A3 / A5",
+          descripcion: "Papel de alta calidad para impresiones de tono suave y textura acogedora.",
+        },
+        {
+          nombre: "Colorplan 135g",
+          precio: "Consultar",
+          imagenes: ["/src/app/assets/placeholder-project-2.jpg", "/src/app/assets/placeholder-project-1.jpg", "/src/app/assets/placeholder-project-3.jpg"],
+          colores: [{ nombre: "Azul", hex: "#3255a4" }, { nombre: "Rosa", hex: "#ff48b0" }, { nombre: "Amarillo", hex: "#ffe800" }],
+          gsm: "135 gsm",
+          dimensiones: "A4 / A3",
+          descripcion: "Papel de color compacto, ideal para piezas de impacto visual y edición experimental.",
+        },
+        {
+          nombre: "Cartulina Bristol 200g",
+          precio: "Consultar",
+          imagenes: ["/src/app/assets/placeholder-project-3.jpg", "/src/app/assets/placeholder-project-1.jpg", "/src/app/assets/placeholder-project-2.jpg"],
+          colores: [{ nombre: "Blanco", hex: "#f7f4eb" }, { nombre: "Crema", hex: "#e6d7b3" }, { nombre: "Gris", hex: "#c9c9c9" }],
+          gsm: "200 gsm",
+          dimensiones: "A3 / A4",
+          descripcion: "Cartulina rígida y elegante para afiches, posters y piezas de presentación.",
+        },
+      ],
+    },
+    notas: "Las opciones de producción se ajustan según formato, tiraje, cantidad de colores y tiempo de armado.",
+    tiempoEntrega: "Consultar según proyecto",
+  },
   a: {
     letra: "A",
     nombre: "Impresión Risográfica",
@@ -30,21 +125,14 @@ const servicios: Record<
       "La risografía es una técnica de impresión stencil que produce resultados únicos e irrepetibles. Cada pasada de tinta tiene su propia textura, y el registro imperfecto entre colores es parte del encanto del proceso. Ideal para fanzines, afiches, papelería y cualquier proyecto que busque una estética editorial artesanal y singular. Trabajamos con tintas de base soja sobre papel sin blanqueadores ópticos.",
     specs: [
       { label: "Formatos", valor: "A5 / A4 / A3 / (preguntar por otros)" },
-      { label: "Colores por trabajo", valor: "Hasta 3 pasadas de color" },
+      { label: "Colores por trabajo", valor: "Hasta 5 pasadas de color" },
       { label: "Tiraje mínimo", valor: "20 unidades" },
       { label: "Tiraje máximo", valor: "Sin límite (consultar tiempos)" },
       { label: "Sangrado", valor: "3 mm recomendado" },
       { label: "Resolución archivos", valor: "300 dpi mínimo, 600 dpi ideal" },
       { label: "Formato de entrega", valor: "PDF separado por color, escala de grises" },
     ],
-    papeles: [
-      "Munken Lynx 100g (natural, sin blanqueadores)",
-      "Biotop 80g (reciclado)",
-      "Colorplan 135g (colores varios)",
-      "Kraft 90g",
-      "Papel de diario 52g",
-      "Papel propio (consultar compatibilidad)",
-    ],
+    papeles: [...papelesDisponiblesBase],
     coloresDisponibles: [...coloresDisponiblesBase],
     proceso: [
       { paso: "01 — Envío de archivos", descripcion: "Nos mandás los archivos separados por color en PDF o TIFF 300 dpi, escala de grises. Si necesitás ayuda con la separación, consultá el servicio B." },
@@ -78,12 +166,7 @@ const servicios: Record<
       { label: "Incluye", valor: "Diseño, separación de colores, impresión" },
       { label: "Entrega archivos", valor: "Opcional, con costo adicional" },
     ],
-    papeles: [
-      "Munken Lynx 100g",
-      "Biotop 80g reciclado",
-      "Colorplan 135g",
-      "Papel propio (consultar)",
-    ],
+    papeles: [...papelesDisponiblesBase],
     coloresDisponibles: [...coloresDisponiblesBase],
     proceso: [
       { paso: "01 — Brief", descripcion: "Nos contás tu proyecto: qué es, para qué sirve, quién lo va a leer, qué referencias tenés. Cuanto más info, mejor." },
@@ -115,13 +198,7 @@ const servicios: Record<
       { label: "Encuadernación", valor: "Grapa / costura / encolado / rústica" },
       { label: "Incluye", valor: "Diseño opcional, impresión, armado y encuadernación" },
     ],
-    papeles: [
-      "Munken Lynx 100g (interior)",
-      "Colorplan 270g (tapa)",
-      "Biotop 80g (interior económico)",
-      "Papel de diario 52g (newsprint)",
-      "Kraft 90g (tapa alternativa)",
-    ],
+    papeles: [...papelesDisponiblesBase],
     coloresDisponibles: [...coloresDisponiblesBase],
     proceso: [
       { paso: "01 — Concepto y formato", descripcion: "Definimos juntos el formato, la cantidad de páginas, los colores y el tipo de encuadernación según tu proyecto y presupuesto." },
@@ -156,10 +233,7 @@ const servicios: Record<
       { label: "Incluye", valor: "Acceso a máquina, uso de master y tinta del laboratorio" },
       { label: "Papel", valor: "Propio o del laboratorio (con costo adicional)" },
     ],
-    papeles: [
-      "Papel propio (recomendado traer)",
-      "Stock del laboratorio disponible a costo",
-    ],
+    papeles: [...papelesDisponiblesBase],
     coloresDisponibles: [...coloresDisponiblesBase],
     proceso: [
       { paso: "01 — Requisito previo", descripcion: "Verificamos que hayas completado el taller introductorio. Si no lo hiciste, te inscribimos en la próxima fecha." },
@@ -183,9 +257,17 @@ const servicios: Record<
 export function ImprentaDetalle() {
   const { id } = useParams<{ id: string }>();
   const servicio = id ? servicios[id.toLowerCase()] : null;
+  const isCatalogoPage = id === "catalogo";
   const contactoUrl = servicio
     ? `/contacto?servicio=${encodeURIComponent(servicio.nombre)}`
     : "/contacto";
+  const [selectedPaper, setSelectedPaper] = useState<PaperCatalogItem | null>(null);
+  const [selectedPaperIndex, setSelectedPaperIndex] = useState(0);
+
+  const openPaperModal = (papel: PaperCatalogItem) => {
+    setSelectedPaper(papel);
+    setSelectedPaperIndex(0);
+  };
 
   if (!servicio) {
     return (
@@ -291,26 +373,35 @@ export function ImprentaDetalle() {
           </div>
         </div>
 
-        {/* Papeles */}
+        {/* Papel */}
         <div className="px-8 lg:px-10 py-8">
           <h2
             className="text-black mb-5 uppercase tracking-widest"
             style={{ fontSize: "clamp(12px, 1vw, 15px)", fontWeight: 700 }}
           >
-            Papeles disponibles ☆
+            Papel ☆
           </h2>
-          <ul className="space-y-2">
-            {servicio.papeles.map((p) => (
-              <li
-                key={p}
-                className="text-black flex items-start gap-2"
-                style={{ fontSize: "clamp(13px, 1.1vw, 17px)", fontWeight: 300 }}
+          <div className="border border-black bg-[#f4f4f4] p-6">
+            <p className="text-black/60 uppercase tracking-widest" style={{ fontSize: 11, fontWeight: 700 }}>
+              Papeles disponibles
+            </p>
+            <ul className="mt-4 space-y-2 text-black" style={{ fontSize: 14, fontWeight: 400, lineHeight: 1.6 }}>
+              {siteContent.imprenta.papelesDisponibles.map((papel) => (
+                <li key={papel} className="list-disc list-inside">
+                  {papel}
+                </li>
+              ))}
+            </ul>
+            {!isCatalogoPage && (
+              <Link
+                to="/imprenta/catalogo"
+                className="inline-flex items-center justify-center mt-6 border border-black rounded-[6px] px-6 py-3 text-black hover:bg-black hover:text-white transition-all duration-200"
+                style={{ fontSize: 14, fontWeight: 600 }}
               >
-                <span className="mt-1 text-black/30">—</span>
-                {p}
-              </li>
-            ))}
-          </ul>
+                Ver el catálogo
+              </Link>
+            )}
+          </div>
         </div>
 
         {/* Colores */}
@@ -339,6 +430,203 @@ export function ImprentaDetalle() {
           </div>
         </div>
       </div>
+
+      {/* Catalogo */}
+      {servicio.catalogo && (
+        <div className="border-b border-black px-8 lg:px-16 py-10 bg-[#f7f7f7]">
+          <h2 className="text-black mb-8" style={{ fontSize: "clamp(20px, 2.5vw, 38px)", fontWeight: 700 }}>
+            Catálogo de producción
+          </h2>
+
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+            {servicio.catalogo.papeles && servicio.catalogo.papeles.length > 0 && (
+              <div className="border border-black p-6 bg-white">
+                <h3 className="text-black mb-4 uppercase tracking-widest" style={{ fontSize: 12, fontWeight: 700 }}>Papeles</h3>
+                <div className="space-y-3">
+                  {servicio.catalogo.papeles.map((papel) => (
+                    <div
+                      key={papel.nombre}
+                      className="flex items-center justify-between gap-4 border border-black/10 rounded-[6px] p-4 hover:bg-black/5 transition-colors duration-200 cursor-pointer"
+                      onClick={() => openPaperModal(papel)}
+                    >
+                      <div>
+                        <p className="text-black" style={{ fontSize: 15, fontWeight: 700 }}>{papel.nombre}</p>
+                        <p className="text-black/60" style={{ fontSize: 14, fontWeight: 400 }}>{papel.gsm} · {papel.dimensiones}</p>
+                      </div>
+                      <span className="text-black" style={{ fontSize: 15, fontWeight: 700 }}>{papel.precio}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            )}
+
+            <div className="space-y-6">
+              {servicio.catalogo.master && servicio.catalogo.master.length > 0 && (
+                <div className="border border-black p-6 bg-white">
+                  <h3 className="text-black mb-3 uppercase tracking-widest" style={{ fontSize: 12, fontWeight: 700 }}>Master</h3>
+                  <div className="space-y-2">
+                    {servicio.catalogo.master.map((item) => (
+                      <div key={item.label} className="flex items-center justify-between gap-4">
+                        <span className="text-black/70" style={{ fontSize: 15, fontWeight: 300 }}>{item.label}</span>
+                        <span className="text-black" style={{ fontSize: 15, fontWeight: 600 }}>{item.precio}</span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              )}
+
+              {servicio.catalogo.corte && servicio.catalogo.corte.length > 0 && (
+                <div className="border border-black p-6 bg-white">
+                  <h3 className="text-black mb-3 uppercase tracking-widest" style={{ fontSize: 12, fontWeight: 700 }}>Corte</h3>
+                  <div className="space-y-2">
+                    {servicio.catalogo.corte.map((item) => (
+                      <div key={item.label} className="flex items-center justify-between gap-4">
+                        <span className="text-black/70" style={{ fontSize: 15, fontWeight: 300 }}>{item.label}</span>
+                        <span className="text-black" style={{ fontSize: 15, fontWeight: 600 }}>{item.precio}</span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              )}
+
+              {servicio.catalogo.preprensa && servicio.catalogo.preprensa.length > 0 && (
+                <div className="border border-black p-6 bg-white">
+                  <h3 className="text-black mb-3 uppercase tracking-widest" style={{ fontSize: 12, fontWeight: 700 }}>Preprensa</h3>
+                  <div className="space-y-2">
+                    {servicio.catalogo.preprensa.map((item) => (
+                      <div key={item.label} className="flex items-center justify-between gap-4">
+                        <span className="text-black/70" style={{ fontSize: 15, fontWeight: 300 }}>{item.label}</span>
+                        <span className="text-black" style={{ fontSize: 15, fontWeight: 600 }}>{item.precio}</span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              )}
+
+              {servicio.catalogo.encuadernacion && servicio.catalogo.encuadernacion.length > 0 && (
+                <div className="border border-black p-6 bg-white">
+                  <h3 className="text-black mb-3 uppercase tracking-widest" style={{ fontSize: 12, fontWeight: 700 }}>Encuadernación</h3>
+                  <div className="space-y-2">
+                    {servicio.catalogo.encuadernacion.map((item) => (
+                      <div key={item.label} className="flex items-center justify-between gap-4">
+                        <span className="text-black/70" style={{ fontSize: 15, fontWeight: 300 }}>{item.label}</span>
+                        <span className="text-black" style={{ fontSize: 15, fontWeight: 600 }}>{item.precio}</span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              )}
+            </div>
+          </div>
+        </div>
+      )}
+
+      {selectedPaper && (
+        <div className="fixed inset-0 z-[60] bg-black/80 flex items-center justify-center p-4" onClick={() => setSelectedPaper(null)}>
+          <div className="w-full max-w-5xl bg-white border border-black p-4 lg:p-8 relative" onClick={(event) => event.stopPropagation()}>
+            <button
+              type="button"
+              onClick={() => setSelectedPaper(null)}
+              className="absolute top-3 right-3 border border-black rounded-full w-9 h-9 flex items-center justify-center text-black hover:bg-black hover:text-white transition-all duration-200"
+              aria-label="Cerrar"
+            >
+              ×
+            </button>
+
+            <div className="grid grid-cols-1 lg:grid-cols-[1.1fr_0.9fr] gap-6">
+              <div>
+                <div className="border border-black bg-[#f4f4f4] p-3">
+                  <img
+                    src={selectedPaper.imagenes?.[selectedPaperIndex] ?? selectedPaper.imagenes?.[0]}
+                    alt={selectedPaper.nombre}
+                    className="w-full h-[320px] object-cover"
+                  />
+                </div>
+
+                {selectedPaper.imagenes && selectedPaper.imagenes.length > 1 && (
+                  <div className="flex items-center gap-3 mt-4">
+                    <button
+                      type="button"
+                      onClick={() => setSelectedPaperIndex((prev) => (prev > 0 ? prev - 1 : selectedPaper.imagenes!.length - 1))}
+                      className="border border-black rounded-[6px] px-3 py-2 text-black hover:bg-black hover:text-white transition-all duration-200"
+                    >
+                      ←
+                    </button>
+                    <div className="flex gap-2 overflow-x-auto">
+                      {selectedPaper.imagenes.map((img, index) => (
+                        <button
+                          key={`${selectedPaper.nombre}-${index}`}
+                          type="button"
+                          onClick={() => setSelectedPaperIndex(index)}
+                          className={`border ${selectedPaperIndex === index ? "border-black" : "border-black/30"}`}
+                        >
+                          <img src={img} alt={`${selectedPaper.nombre} ${index + 1}`} className="w-16 h-16 object-cover" />
+                        </button>
+                      ))}
+                    </div>
+                    <button
+                      type="button"
+                      onClick={() => setSelectedPaperIndex((prev) => (prev < (selectedPaper.imagenes!.length - 1) ? prev + 1 : 0))}
+                      className="border border-black rounded-[6px] px-3 py-2 text-black hover:bg-black hover:text-white transition-all duration-200"
+                    >
+                      →
+                    </button>
+                  </div>
+                )}
+              </div>
+
+              <div className="flex flex-col gap-5">
+                <div>
+                  <p className="text-black/40 uppercase tracking-widest mb-2" style={{ fontSize: 11, fontWeight: 700 }}>Papel</p>
+                  <h3 className="text-black" style={{ fontSize: "clamp(22px, 2vw, 32px)", fontWeight: 700 }}>{selectedPaper.nombre}</h3>
+                  <p className="text-black/70 mt-2" style={{ fontSize: 15, fontWeight: 300 }}>{selectedPaper.descripcion}</p>
+                </div>
+
+                <div className="border border-black p-4 bg-[#f7f7f7]">
+                  <p className="text-black/40 uppercase tracking-widest mb-3" style={{ fontSize: 11, fontWeight: 700 }}>Colores</p>
+                  <div className="flex flex-wrap gap-2">
+                    {selectedPaper.colores?.map((color, index) => (
+                      <button
+                        key={color.nombre}
+                        type="button"
+                        onClick={() => setSelectedPaperIndex(index)}
+                        className="flex items-center gap-2 border border-black/20 px-2 py-1"
+                      >
+                        <span className="block w-4 h-4 rounded-full border border-black/10" style={{ background: color.hex }} />
+                        <span className="text-black" style={{ fontSize: 13, fontWeight: 500 }}>{color.nombre}</span>
+                      </button>
+                    ))}
+                  </div>
+                </div>
+
+                <div className="grid grid-cols-2 gap-4">
+                  <div className="border border-black p-4">
+                    <p className="text-black/40 uppercase tracking-widest mb-1" style={{ fontSize: 11, fontWeight: 700 }}>GSM</p>
+                    <p className="text-black" style={{ fontSize: 15, fontWeight: 600 }}>{selectedPaper.gsm}</p>
+                  </div>
+                  <div className="border border-black p-4">
+                    <p className="text-black/40 uppercase tracking-widest mb-1" style={{ fontSize: 11, fontWeight: 700 }}>Dimensiones</p>
+                    <p className="text-black" style={{ fontSize: 15, fontWeight: 600 }}>{selectedPaper.dimensiones}</p>
+                  </div>
+                </div>
+
+                <div className="border border-black p-4">
+                  <p className="text-black/40 uppercase tracking-widest mb-2" style={{ fontSize: 11, fontWeight: 700 }}>Precio</p>
+                  <p className="text-black" style={{ fontSize: 18, fontWeight: 700 }}>{selectedPaper.precio}</p>
+                </div>
+
+                <Link
+                  to="/contacto"
+                  className="inline-block border border-black rounded-[6px] px-6 py-3 text-black hover:bg-black hover:text-white transition-all duration-200 text-center"
+                  style={{ fontSize: 14, fontWeight: 600 }}
+                >
+                  CONSULTAR ESTE PAPEL ☆
+                </Link>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
 
       {/* Proceso */}
       <div className="border-b border-black px-8 lg:px-16 py-10">

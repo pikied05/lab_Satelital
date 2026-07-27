@@ -5,6 +5,14 @@ export interface Proyecto {
   categoria: string;
   descripcion: string;
   tags: string[];
+  tecnicos?: {
+    colores?: string[];
+    papel?: string;
+    tiraje?: string;
+    formato?: string;
+    tinta?: string;
+    notas?: string;
+  };
 }
 
 export const proyectos: Proyecto[] = [
@@ -16,6 +24,14 @@ export const proyectos: Proyecto[] = [
     descripcion:
       "Cuidar la llama feminista: lo que nos gusta hacer entre todas. Cuidar la llama feminista también es decir lo que sentimos. Este fanzine es resultado de la suma de voces que formaron parte de Cuidar la llama. Curaduría feminista en práctica. Impartido por Kekena Corvalán y Alma Cardoso en 2025. Las imágenes y textos son de cada una de las personas que formaron parte del curso.",
     tags: ["Risografía", "Publicación", "Colectivo"],
+    tecnicos: {
+      colores: ["Azul Medio", "Naranja"],
+      papel: "Papel Bond 90g (interior) / Albanene 120g (tapa)",
+      tiraje: "20 ejemplares",
+      formato: "Media carta (14,8 × 21 cm)",
+      tinta: "Tinta de soja",
+      notas: "Engrapado y fanzine colectivo.",
+    },
   },
   {
     id: "002",
@@ -25,6 +41,14 @@ export const proyectos: Proyecto[] = [
     descripcion:
       "Poster experimental, para el lanzamiento de Laboratorio Satelital. Fotografía de Camila López (@thescienceoffeelings) y dibujos hechos por Mafer Céspedes (@volcan0_jpg) Impresión en risografía, dos colores. Tiraje de 35 ejemplares en Cartulina Bristol 200 gsm.",
     tags: ["Risografía", "Colectivo", "Poster"],
+    tecnicos: {
+      colores: ["Azul Medio", "Naranja"],
+      papel: "Cartulina Bristol 200 gsm",
+      tiraje: "35 ejemplares",
+      formato: "Carta (21,6 × 27,9 cm)",
+      tinta: "Tinta de soja",
+      notas: "Impresión en dos colores sobre cartulina de alto gramaje.",
+    },
   },
   {
     id: "003",

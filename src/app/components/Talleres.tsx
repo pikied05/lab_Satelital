@@ -1,45 +1,9 @@
 import { Link } from "react-router";
+import { siteContent } from "../data/siteContent";
 
 const NR = "'Neue Regrade', sans-serif";
 
-const talleres = [
-  {
-    id: "01",
-    titulo: "Introducción a la Risografía",
-    fecha: "Proximamente",
-    duracion: "2 días / 8 horas",
-    cupos: "10 personas",
-    descripcion:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aprende los fundamentos de la impresión risográfica, desde la preparación de archivos hasta la operación de la máquina. Exploraremos separación de colores, registro y las posibilidades expresivas únicas de este medio.",
-  },
-  {
-    id: "02",
-    titulo: "Diseño Editorial Experimental",
-    fecha: "Proximamente",
-    duracion: "3 días / 12 horas",
-    cupos: "8 personas",
-    descripcion:
-      "Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Un taller enfocado en la construcción de publicaciones independientes desde el concepto hasta el objeto impreso. Exploraremos formatos, encuadernación básica y la relación entre diseño y producción.",
-  },
-  {
-    id: "03",
-    titulo: "Fanzine & Autoedición",
-    fecha: "Proximamente",
-    duracion: "1 día / 6 horas",
-    cupos: "12 personas",
-    descripcion:
-      "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris. Aprende a hacer tu propio fanzine desde cero. Técnicas de maquetación, impresión en risógrafo y encuadernación artesanal. Cada participante se lleva su propia publicación.",
-  },
-  {
-    id: "04",
-    titulo: "Risografía & Procesos Alternativos",
-    fecha: "Proximamente",
-    duracion: "2 días / 10 horas",
-    cupos: "8 personas",
-    descripcion:
-      "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore. Un espacio para experimentar con tintas, texturas y soportes no convencionales. Combinamos técnicas de impresión analógica con propuestas conceptuales propias.",
-  },
-];
+const talleres = siteContent.talleres;
 
 export function Talleres() {
   return (

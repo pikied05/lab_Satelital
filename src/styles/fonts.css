@@ -1,1 +1,111 @@
-@import url('https://fonts.googleapis.com/css2?family=Neue+Regrade:wght@300..700&display=swap');
+/* Local font loading for Neue Regrade.
+   Put the corresponding font files in public/fonts using these filenames:
+   - NeueRegrade-Light.woff2
+   - NeueRegrade-Light-Italic.woff2
+   - NeueRegrade-Regular.woff2
+   - NeueRegrade-Regular-Italic.woff2
+   - NeueRegrade-Medium.woff2
+   - NeueRegrade-Medium-Italic.woff2
+   - NeueRegrade-Semibold.woff2
+   - NeueRegrade-SemiBold-Italic.woff2
+   - NeueRegrade-Bold.woff2
+   - NeueRegrade-Bold-Italic.woff2
+   - NeueRegrade-Extrabold.woff2
+   - NeueRegrade-ExtraBold-Italic.woff2
+*/
+
+@font-face {
+  font-family: 'Neue Regrade';
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+  src: url('/fonts/NeueRegrade-Light.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Neue Regrade';
+  font-weight: 300;
+  font-style: italic;
+  font-display: swap;
+  src: url('/fonts/NeueRegrade-Light-Italic.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Neue Regrade';
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+  src: url('/fonts/NeueRegrade-Regular.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Neue Regrade';
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+  src: url('/fonts/NeueRegrade-Regular-Italic.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Neue Regrade';
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+  src: url('/fonts/NeueRegrade-Medium.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Neue Regrade';
+  font-weight: 500;
+  font-style: italic;
+  font-display: swap;
+  src: url('/fonts/NeueRegrade-Medium-Italic.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Neue Regrade';
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+  src: url('/fonts/NeueRegrade-Semibold.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Neue Regrade';
+  font-weight: 600;
+  font-style: italic;
+  font-display: swap;
+  src: url('/fonts/NeueRegrade-SemiBold-Italic.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Neue Regrade';
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+  src: url('/fonts/NeueRegrade-Bold.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Neue Regrade';
+  font-weight: 700;
+  font-style: italic;
+  font-display: swap;
+  src: url('/fonts/NeueRegrade-Bold-Italic.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Neue Regrade';
+  font-weight: 800;
+  font-style: normal;
+  font-display: swap;
+  src: url('/fonts/NeueRegrade-Extrabold.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Neue Regrade';
+  font-weight: 800;
+  font-style: italic;
+  font-display: swap;
+  src: url('/fonts/NeueRegrade-ExtraBold-Italic.woff2') format('woff2');
+}
